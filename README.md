@@ -30,6 +30,25 @@ This project exists for hands-on learning around:
 - PostgreSQL
 - Docker Compose
 
+## Current Features
+
+- Live OpenSky flight ingestion
+- Malaysia/SEA regional filtering
+- Flight statistics endpoint
+- Structured flight parsing
+- FastAPI REST API
+
+## Current Endpoints
+
+### Health
+GET /health
+
+### Live Flights
+GET /flights/live
+
+### Flight Statistics
+GET /stats
+
 ## Roadmap
 
 See:
