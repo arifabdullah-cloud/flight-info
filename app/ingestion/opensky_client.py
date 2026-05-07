@@ -25,11 +25,9 @@ def is_within_bounds(latitude, longitude, bounds):
 def fetch_flights():
     try:
         response = httpx.get(OPENSKY_URL, timeout=10)
-
         response.raise_for_status()
 
         data = response.json()
-
         states = data.get("states", [])
 
         malaysia_flights = []
@@ -45,12 +43,15 @@ def fetch_flights():
         print(f"Total flights received: {len(states)}")
         print(f"Flights near Malaysia/SEA: {len(malaysia_flights)}")
 
-        for flight in malaysia_flights[:20]:
-            print(flight)
+        return malaysia_flights
 
     except Exception as error:
         print(f"Error fetching flight data: {error}")
+        return []
 
 
 if __name__ == "__main__":
-    fetch_flights()
+    flights = fetch_flights()
+
+    for flight in flights[:20]:
+        print(flight)
